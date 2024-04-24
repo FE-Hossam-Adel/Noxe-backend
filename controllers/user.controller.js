@@ -19,7 +19,7 @@ export const addUser =asyncHandler(
 
         const foundUser = await usermodel.findOne({ email: req.body.email });
         if (foundUser) {
-            return nxt(new Error("this email is exists"))
+            return nxt(new Error("This email address already exists"))
         } else {
             let usr = new usermodel({...req.body});
             usr.save().then(()=>{
@@ -116,9 +116,9 @@ export const loginUser =asyncHandler(
                 })
             } 
         }else{
-            // res.send({
-            //     message:"this email not found or verification code is invalid"
-            // })
+            res.send({
+                message:"email or password is not correct"
+            })
         }
            
     }
