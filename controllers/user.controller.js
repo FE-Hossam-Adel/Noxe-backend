@@ -30,7 +30,6 @@ export const addUser =asyncHandler(
                     html: `
                         your verfication code is ${usr.verificationCode}
                         <br>
-                         <a href="http://localhost:3001/verfication/${Buffer.from(`email=${usr.email}`).toString('base64')}">verifiy now</a>
                     `
                 }, (err, info) => {
                     if (err) {
